@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Robot Scouting Interface</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="scout1.css">
+    </head>
+    <body>
+        <!--<form>-->
+            <input type="number" id="team" hidden>
+            <fieldset>
+                <h3>Autonomous:</h3>
+                <input type="checkbox" id="leave">
+                <label for="leave">Leave</label><br>
+                <button id="minusAmpAuto">-</button>
+                <input type="text" id="ampAuto" value="0">
+                <button id="plusAmpAuto">+</button>
+                <label for="ampAuto">Amp Notes</label><br>
+                <button id="minusSAuto">-</button>
+                <input type="text" id="sAuto" value="0">
+                <button id="plusSAuto">+</button>
+                <label for="sAuto">Speaker Notes</label><br>
+            </fieldset>
+            <fieldset>
+                <h3>Teleoperated:</h3>
+                <button id="minusAmp">-</button>
+                <input type="text" id="amp" value="0">
+                <button id="plusAmp">+</button>
+                <label for="amp">Amp Notes</label><br>
+                <button id="minusNAmp">-</button>
+                <input type="text" id="nAmp" value="0">
+                <button id="plusNAmp">+</button>
+                <label for="nAmp">Not Amplified Speaker Notes</label><br>
+                <button id="minusSAmp">-</button>
+                <input type="text" id="sAmp" value="0">
+                <button id="plusSAmp">+</button>
+                <label for="sAmp">Amplified Speaker Notes</label><br>
+                <button id="minusS">-</button>
+                <input type="text" id="s" value="0">
+                <button id="plusS">+</button>
+                <label for="s">Speaker Notes</label><br>
+            </fieldset>
+            <fieldset>
+                <h3>Endgame:</h3>
+                <input type="radio" name="stage" id="none" onclick="hideStageDetail1()">
+                <label for="none">No Endgame Points</label><br>
+                <input type="radio" name="stage" id="park" onclick="hideStageDetail1()">
+                <label for="park">Parked</label><br>
+                <input type="radio" name="stage" id="onstage" onclick="showStageDetail1()">
+                <label for="onstage">Onstage</label><br>
+                <div id="stageDetail" hidden class="detail">
+                    <input type="checkbox" id="spotlit">
+                    <label for="spotlit">Spotlit</label><br>
+                    <input type="checkbox" id="harmony" onclick="authenticate()">
+                    <label for="harmony">Harmony</label>
+                    <div id="stageDetail2" hidden class="tab2">
+                        <p>How many robots on that stage?</p>
+                        <input type="radio" name="robots" id="s1">
+                        <label for="s1">1</label><br>
+                        <input type="radio" name="robots" id="s2">
+                        <label for="s2">2</label><br>
+                        <input type="radio" name="robots" id="s3">
+                        <label for="s3">3</label><br>
+                        <p>What order did your robot climb?</p>
+                        <input type="radio" name="order" id="o1">
+                        <label for="o1">1st</label><br>
+                        <input type="radio" name="order" id="o2">
+                        <label for="o2">2nd</label><br>
+                        <input type="radio" name="order" id="o3">
+                        <label for="o3">3rd</label><br>
+                    </div>
+                </div>
+            </fieldset>
+        <!--</form>-->
+        <script>
+            const minusAmp = document.getElementById("minusAmp")
+            const amp = document.getElementById("amp")
+            const plusAmp = document.getElementById("plusAmp")
+            minusAmp.addEventListener("click", minusAmp1)
+            plusAmp.addEventListener("click", plusAmp1)
+            function minusAmp1(){
+                const currentValue = Number(amp.value) || 0
+                if(currentValue < 1){
+                    amp.value = 0
+                } else {
+                    amp.value = String(currentValue - 1)
+                }
+            }
+            function plusAmp1(){
+                const currentValue = Number(amp.value) || 0
+                amp.value = String(currentValue + 1)
+            }
+            const minusNAmp = document.getElementById("minusNAmp")
+            const nAmp = document.getElementById("nAmp")
+            const plusNAmp = document.getElementById("plusNAmp")
+            minusNAmp.addEventListener("click", minusNAmp1)
+            plusNAmp.addEventListener("click", plusNAmp1)
+            function minusNAmp1(){
+                const currentValue = Number(nAmp.value) || 0
+                if(currentValue < 1){
+                    nAmp.value = 0
+                } else {
+                    nAmp.value = String(currentValue - 1)
+                }
+            }
+            function plusNAmp1(){
+                const currentValue = Number(nAmp.value) || 0
+                nAmp.value = String(currentValue + 1)
+            }
+            const minusSAmp = document.getElementById("minusSAmp")
+            const sAmp = document.getElementById("sAmp")
+            const plusSAmp = document.getElementById("plusSAmp")
+            minusSAmp.addEventListener("click", minusSAmp1)
+            plusSAmp.addEventListener("click", plusSAmp1)
+            function minusSAmp1(){
+                const currentValue = Number(sAmp.value) || 0
+                if(currentValue < 1){
+                    sAmp.value = 0
+                } else {
+                    sAmp.value = String(currentValue - 1)
+                }
+            }
+            function plusSAmp1(){
+                const currentValue = Number(sAmp.value) || 0
+                sAmp.value = String(currentValue + 1)
+            }
+            const minusS = document.getElementById("minusS")
+            const s = document.getElementById("s")
+            const plusS = document.getElementById("plusS")
+            minusS.addEventListener("click", minusS1)
+            plusS.addEventListener("click", plusS1)
+            function minusS1(){
+                const currentValue = Number(s.value) || 0
+                if(currentValue < 1){
+                    s.value = 0
+                } else {
+                    s.value = String(currentValue - 1)
+                }
+            }
+            function plusS1(){
+                const currentValue = Number(s.value) || 0
+                s.value = String(currentValue + 1)
+            }
+            function showStageDetail1(){
+                var stageDetail = document.getElementById("stageDetail")
+                stageDetail.style.display="block"
+            }
+            function hideStageDetail1(){
+                var stageDetail = document.getElementById("stageDetail")
+                stageDetail.style.display="none"
+            }
+            var checkStore = 0
+            function authenticate(){
+                checkStore += 1;
+                if(checkStore % 2!== 0){
+                    showStageDetail2()
+                } else {
+                    hideStageDetail2()
+                }
+            }
+            function showStageDetail2(){
+                var stageDetail2 = document.getElementById("stageDetail2")
+                stageDetail2.style.display="block"
+            }
+            function hideStageDetail2(){
+                var stageDetail2 = document.getElementById("stageDetail2")
+                stageDetail2.style.display="none"
+            }
+        </script>
+    </body>
+</html>
