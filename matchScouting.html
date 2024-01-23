@@ -39,6 +39,10 @@
                 <input type="text" id="s" value="0">
                 <button id="plusS">+</button>
                 <label for="s">Speaker Notes</label><br>
+                <button id="minusT">-</button>
+                <input type="text" id="t" value="0">
+                <button id="plusT">+</button>
+                <label for="t">Notes Scored in Trap</label><br>
             </fieldset>
             <fieldset>
                 <h3>Endgame:</h3>
@@ -73,6 +77,40 @@
             </fieldset>
         <!--</form>-->
         <script>
+            const minusAutoAmp = document.getElementById("minusAmpAuto")
+            const autoAmp = document.getElementById("ampAuto")
+            const plusAutoAmp = document.getElementById("plusAmpAuto")
+            minusAutoAmp.addEventListener("click", minusAutoAmp1)
+            plusAutoAmp.addEventListener("click", plusAutoAmp1)
+            function minusAutoAmp1(){
+                const currentValue = Number(autoAmp.value) || 0
+                if(currentValue < 1){
+                    autoAmp.value = 0
+                } else {
+                    autoAmp.value = String(currentValue - 1)
+                }
+            }
+            function plusAutoAmp1(){
+                const currentValue = Number(autoAmp.value) || 0
+                autoAmp.value = String(currentValue + 1)
+            }
+            const minusSAuto = document.getElementById("minusSAuto")
+            const sAuto = document.getElementById("sAuto")
+            const plusSAuto = document.getElementById("plusSAuto")
+            minusSAuto.addEventListener("click", minusSAuto1)
+            plusSAuto.addEventListener("click", plusSAuto1)
+            function minusSAuto1(){
+                const currentValue = Number(sAuto.value) || 0
+                if(currentValue < 1){
+                    sAuto.value = 0
+                } else {
+                    sAuto.value = String(currentValue - 1)
+                }
+            }
+            function plusSAuto1(){
+                const currentValue = Number(sAuto.value) || 0
+                sAuto.value = String(currentValue + 1)
+            }
             const minusAmp = document.getElementById("minusAmp")
             const amp = document.getElementById("amp")
             const plusAmp = document.getElementById("plusAmp")
@@ -141,6 +179,28 @@
                 const currentValue = Number(s.value) || 0
                 s.value = String(currentValue + 1)
             }
+            const minusT = document.getElementById("minusT")
+            const t = document.getElementById("t")
+            const plusT = document.getElementById("plusT")
+            minusT.addEventListener("click", minusT1)
+            plusT.addEventListener("click", plusT1)
+            function minusT1(){
+                const currentValue = Number(t.value) || 0
+                if(currentValue < 1){
+                    t.value = 0
+                } else {
+                    t.value = String(currentValue - 1)
+                }
+            }
+            function plusT1(){
+                const currentValue = Number(t.value) || 0
+                if(currentValue >= 3){
+                    t.value = 3
+                }else{
+                    t.value = String(currentValue + 1)
+                }
+            }
+
             function showStageDetail1(){
                 var stageDetail = document.getElementById("stageDetail")
                 stageDetail.style.display="block"

@@ -7,34 +7,34 @@
     </head>
     <body>
         <h1>Human Scouting</h1>
-        <!--<form action="/py/Post1.py" method="post">-->
+        <form>
             <input id="team" hidden type="number">
             <fieldset>
                 <h3>High Note 1</h3>
-                <input id="notThrown1" name="ring1" type="radio" onclick="notThrown(1)">
+                <input id="notThrown1" name="ring1" type="radio">
                 <label for="notThrown1">Not Thrown</label><br>
-                <input id="thrown1" name="ring1" type="radio" onclick="thrown1()">
+                <input id="thrown1" name="ring1" type="radio">
                 <label for="thrown1">Thrown</label>
                 <div id="thrownDetail1" class="detail"></div>
             </fieldset>
             <fieldset>
                 <h3>High Note 2</h3>
-                <input id="notThrown2" name="ring2" type="radio" onclick="notThrown(2)">
+                <input id="notThrown2" name="ring2" type="radio">
                 <label for="notThrown2">Not Thrown</label><br>
-                <input id="thrown2" name="ring2" type="radio" onclick="thrown2()">
+                <input id="thrown2" name="ring2" type="radio">
                 <label for="thrown2">Thrown</label>
                 <div id="thrownDetail2" class="detail"></div>
             </fieldset>
             <fieldset>
                 <h3>High Note 3</h3>
-                <input id="notThrown3" name="ring3" type="radio" onclick="notThrown(3)">
+                <input id="notThrown3" name="ring3" type="radio">
                 <label for="notThrown3">Not Thrown</label><br>
-                <input id="thrown3" name="ring3" type="radio" onclick="thrown3()">
+                <input id="thrown3" name="ring3" type="radio">
                 <label for="thrown3">Thrown</label>
                 <div id="thrownDetail3" class="detail"></div>
             </fieldset>
             <input type="submit">
-        <!--</form>-->
+        </form>
     </body>
     <script>
         function thrown1(){
@@ -173,6 +173,26 @@
                 b1.remove()
                 b2.remove()
             }
+        }
+        window.onload = function(){
+            document.getElementById("notThrown1").addEventListener("click", function(){
+                notThrown(1)
+            })
+            document.getElementById("thrown1").addEventListener("click", function(){
+                thrown1()
+            })
+            document.getElementById("notThrown2").addEventListener("click", function(){
+                notThrown(2)
+            })
+            document.getElementById("thrown2").addEventListener("click", function(){
+                thrown2()
+            })
+            document.getElementById("notThrown3").addEventListener("click", function(){
+                notThrown(3)
+            })
+            document.getElementById("thrown3").addEventListener("click", function(){
+                thrown3()
+            })
         }
     </script>
 </html>
