@@ -1,0 +1,8 @@
+<No>--When speaker amplified?--</No> If? --Human Player ------Done
+Ranking with scenarios (Talk to James)
+Live data ---Google Sheet ALMOST working. Transfer to SQL later...
+Fix human player website ------Done
+QR Codes?
+	-Red 1 website <<Example>>
+Team Autofill? (This or QR) --- Initial Design Done
+Select match and alliance and get team number? (This or QR or Autofill)

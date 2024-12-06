@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+  </head>
+
+
+<body id="home">
+<form action="/py/PostCones.py" method="post" >
+<!--<form action="/py/CGI-Test.py" method="post" >  -->
+<label>Cones</label><br>
+<button type="button" name="MinusCones">-</button>
+<input type="text" value="0" Name="Cones" >
+<button type="button" name="PlusCones">+</button>
+<br><br>
+<button>Submit</button>
+</form>
+  </body>
+ 
+<script>
+const MinusCones = document.getElementsByName('MinusCones')[0];
+const PlusCones = document.getElementsByName('PlusCones')[0];
+const Cones = document.getElementsByName('Cones')[0];
+
+MinusCones.addEventListener('click', MinusCone);
+PlusCones.addEventListener('click', PlusCone);
+
+function MinusCone() {
+  const currentValue = Number(Cones.value) || 0;
+  if (currentValue < 1) {
+  Cones.value = 0
+  }  else {
+  Cones.value = String(currentValue - 1);
+  }
+};
+
+function PlusCone() {
+  const currentValue = Number(Cones.value) || 0;
+
+  Cones.value = String(currentValue + 1);
+  };
+
+</script>
+</html>

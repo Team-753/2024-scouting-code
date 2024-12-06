@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Choose Match</title>
+        <meta charset="UTF-8">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
+        <link rel="stylesheet" href="static/scout1.css">
+        <link rel="icon" type="image/x-icon" href="static/scoutIcon.png">
+    </head>
+    <body>
+        <a href="/">Return to scouting home</a>
+        <form action="/matchScout" method="post">
+            <select name="alliance" id="alliance">
+                <option value="blue 1">Blue 1</option>
+                <option value="blue 2">Blue 2</option>
+                <option value="blue 3">Blue 3</option>
+                <option value="red 1">Red 1</option>
+                <option value="red 2">Red 2</option>
+                <option value="red 3">Red 3</option>
+            </select><br>
+            <!--<input type="search" name="teamNo" id="teamNo" list="teams" required>-->
+            <select id="teamNo" name="teamNo" required>
+                <!--<option value="{{ red1 }}"></option>
+                <option value="{{ red2 }}"></option>
+                <option value="{{ red3 }}"></option>
+                <option value="{{ blue1 }}"></option>
+                <option value="{{ blue2 }}"></option>
+                <option value="{{ blue3 }}"></option>-->
+                <option value=""></option>
+                <option value="753">753</option>
+                <option value="957">957</option>
+                <option value="997">997</option>
+                <option value="1425">1425</option>
+                <option value="1540">1540</option>
+                <option value="2374">2374</option>
+                <option value="2471">2471</option>
+                <option value="2521">2521</option>
+                <option value="2550">2550</option>
+                <option value="2635">2635</option>
+                <option value="2733">2733</option>
+                <option value="2811">2811</option>
+                <option value="2898">2898</option>
+                <option value="2990">2990</option>
+                <option value="3024">3024</option>
+                <option value="3636">3636</option>
+                <option value="3673">3673</option>
+                <option value="4043">4043</option>
+                <option value="4060">4060</option>
+                <option value="4127">4127</option>
+                <option value="4488">4488</option>
+                <option value="4662">4662</option>
+                <option value="4692">4692</option>
+                <option value="5295">5295</option>
+                <option value="5970">5970</option>
+                <option value="5975">5975</option>
+                <option value="6343">6343</option>
+                <option value="6443">6443</option>
+                <option value="6465">6465</option>
+                <option value="6696">6696</option>
+                <option value="6845">6845</option>
+                <option value="7034">7034</option>
+                <option value="9430">9430</option>
+                <option value="9567">9567</option>
+                <option value="9600">9600</option>
+                <option value="9680">9680</option>
+            </select>
+            <label for="teamNo">Team Number</label><br>
+            <button id="minusMatch" type="button">-</button>
+            <input type="text" name="matchNo" id="matchNo" list="matches" required>
+            <button id="plusMatch" type="button">+</button>
+            <label for="matchNo">Match Number</label><br>
+            <script>
+                const minusMatch = document.getElementById("minusMatch")
+                const matchNo = document.getElementById("matchNo")
+                const plusMatch = document.getElementById("plusMatch")
+                minusMatch.addEventListener("click", minusMatch1)
+                plusMatch.addEventListener("click", plusMatch1)
+                function minusMatch1(){
+                    const currentValue = Number(matchNo.value) || 0
+                    if(currentValue < 1){
+                        matchNo.value = 0
+                    } else {
+                        matchNo.value = String(currentValue - 1)
+                    }
+                }
+                function plusMatch1(){
+                    const currentValue = Number(matchNo.value) || 0
+                    matchNo.value = String(currentValue + 1)
+                }
+            </script>
+            <!--
+            <datalist id="matches">
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+                <option value="6"></option>
+                <option value="7"></option>
+                <option value="8"></option>
+                <option value="9"></option>
+                <option value="10"></option>
+                <option value="11"></option>
+                <option value="12"></option>
+                <option value="13"></option>
+                <option value="14"></option>
+                <option value="15"></option>
+                <option value="16"></option>
+                <option value="17"></option>
+                <option value="18"></option>
+                <option value="19"></option>
+                <option value="20"></option>
+                <option value="21"></option>
+                <option value="22"></option>
+                <option value="23"></option>
+                <option value="24"></option>
+                <option value="25"></option>
+                <option value="26"></option>
+                <option value="27"></option>
+                <option value="28"></option>
+                <option value="29"></option>
+                <option value="30"></option>
+                <option value="31"></option>
+                <option value="32"></option>
+                <option value="33"></option>
+                <option value="34"></option>
+                <option value="35"></option>
+                <option value="36"></option>
+                <option value="37"></option>
+                <option value="38"></option>
+                <option value="39"></option>
+                <option value="40"></option>
+                <option value="41"></option>
+                <option value="42"></option>
+                <option value="43"></option>
+                <option value="44"></option>
+                <option value="45"></option>
+                <option value="46"></option>
+                <option value="47"></option>
+                <option value="48"></option>
+                <option value="49"></option>
+                <option value="50"></option>
+                <option value="51"></option>
+                <option value="52"></option>
+                <option value="53"></option>
+                <option value="54"></option>
+                <option value="55"></option>
+                <option value="56"></option>
+                <option value="57"></option>
+                <option value="58"></option>
+                <option value="59"></option>
+                <option value="60"></option>
+            </datalist>-->
+            <input type="submit">
+        </form>
+        
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!--
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="5">Scouting Assignments for {{ assignment }}</th>
+                </tr>
+                <tr>
+                    <td>Match</td>
+                    <td>Team</td>
+                </tr>
+            <tbody>
+                <tr><td><a href="/matchScout/{{ match1 }}/{{ alliance1 }}/{{ team1 }}/{{ matchTeam1 }}">{{ match11 }}</a></td><td>{{ team11 }}</td></tr>
+                <tr><td><a href="/matchScout/{{ match2 }}/{{ alliance2 }}/{{ team2 }}/{{ matchTeam2 }}">{{ match21 }}</a></td><td>{{ team21 }}</td></tr>
+                <tr><td><a href="/matchScout/{{ match3 }}/{{ alliance3 }}/{{ team3 }}/{{ matchTeam3 }}">{{ match31 }}</a></td><td>{{ team31 }}</td></tr>
+            </tbody>
+            </thead>
+        </table>
+        <form action="/matchScout" method="POST">
+            
+        </form>-->
+    </body>
+</html>

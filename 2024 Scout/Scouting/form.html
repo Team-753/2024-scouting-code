@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Team 753 Scouting Website</title>
+        <link rel="stylesheet" href="\scoutstyle.css">
+    </head>
+    <body>
+        <h1>Complete a Scouting<br>Entry</h1>
+        <form action="/py/Post.py" method="post"> 
+            <!--<fieldset>-->
+                <h2>Autonomous Period</h2>
+                <input type="checkbox" name="mobile" id="mobile" class="largecheckbox">Leave during autonomous.
+                <br>
+                <br>
+                Autonomous Charge Station:
+                <br>
+                <select id="autochrg" name="autochrg" required>
+                    <option></option>
+                    <option name="docked,unengaged">Docked, Not Engaged</option>
+                    <option name="docked,engaged">Docked, Engaged</option>
+                    <option name="none">None of the Above</option>
+                </select>
+                <br>
+                <br>
+                <br>
+                <label>Cones scored during Autonomous</label><br>
+                <button type="button" name="MinusCones1">-</button>
+                <input type="text" value="0" Name="Cones1" >
+                <button type="button" name="PlusCones1">+</button>
+                <br>
+                <label>Cubes scored during Autonomous</label><br>
+                <button type="button" name="MinusCubes1">-</button>
+                <input type="text" value="0" Name="Cubes1" >
+                <button type="button" name="PlusCubes1">+</button>
+
+                <script>
+                    const MinusCones1 = document.getElementsByName('MinusCones1')[0];
+                    const PlusCones1 = document.getElementsByName('PlusCones1')[0];
+                    const Cones1 = document.getElementsByName('Cones1')[0];
+
+                    const MinusCubes1 = document.getElementsByName('MinusCubes1')[0];
+                    const PlusCubes1 = document.getElementsByName('PlusCubes1')[0];
+                    const Cubes1 = document.getElementsByName('Cubes1')[0];
+                    
+                    MinusCones1.addEventListener('click', MinusCone1);
+                    PlusCones1.addEventListener('click', PlusCone1);
+
+                    MinusCubes1.addEventListener('click', MinusCube1);
+                    PlusCubes1.addEventListener('click', PlusCube1);
+                    
+                    function MinusCone1() {
+                      const currentValue = Number(Cones1.value) || 0;
+                      if (currentValue < 1) {
+                      Cones1.value = 0
+                      }  else {
+                      Cones1.value = String(currentValue - 1);
+                      }
+                    };
+
+                    function MinusCube1() {
+                      const currentValue = Number(Cubes1.value) || 0;
+                      if (currentValue < 1) {
+                      Cubes1.value = 0
+                      }  else {
+                      Cubes1.value = String(currentValue - 1);
+                      }
+                    };
+                    
+                    function PlusCone1() {
+                      const currentValue = Number(Cones1.value) || 0;
+                    
+                      Cones1.value = String(currentValue + 1);
+                      };
+
+                    function PlusCube1() {
+                      const currentValue = Number(Cubes1.value) || 0;
+                    
+                      Cubes1.value = String(currentValue + 1);
+                      };
+                    
+                    </script>
+                
+                <br>
+                <br>
+                <!--
+                </fieldset>
+                <fieldset>
+                -->
+                <h2>Teleoperated Period</h2>
+
+                <label>Cones scored Bottom</label><br>
+                <button type="button" name="MinusCones">-</button>
+                <input type="text" value="0" Name="Cones" >
+                <button type="button" name="PlusCones">+</button>
+                <br>
+                <label>Cubes scored Bottom</label><br>
+                <button type="button" name="MinusCubes">-</button>
+                <input type="text" value="0" Name="Cubes" >
+                <button type="button" name="PlusCubes">+</button>
+
+                <script>
+                    const MinusCones = document.getElementsByName('MinusCones')[0];
+                    const PlusCones = document.getElementsByName('PlusCones')[0];
+                    const Cones = document.getElementsByName('Cones')[0];
+
+                    const MinusCubes = document.getElementsByName('MinusCubes')[0];
+                    const PlusCubes = document.getElementsByName('PlusCubes')[0];
+                    const Cubes = document.getElementsByName('Cubes')[0];
+                    
+                    MinusCones.addEventListener('click', MinusCone);
+                    PlusCones.addEventListener('click', PlusCone);
+
+                    MinusCubes.addEventListener('click', MinusCube);
+                    PlusCubes.addEventListener('click', PlusCube);
+                    
+                    function MinusCone() {
+                      const currentValue = Number(Cones.value) || 0;
+                      if (currentValue < 1) {
+                      Cones.value = 0
+                      }  else {
+                      Cones.value = String(currentValue - 1);
+                      }
+                    };
+
+                    function MinusCube() {
+                      const currentValue = Number(Cubes.value) || 0;
+                      if (currentValue < 1) {
+                      Cubes.value = 0
+                      }  else {
+                      Cubes.value = String(currentValue - 1);
+                      }
+                    };
+                    
+                    function PlusCone() {
+                      const currentValue = Number(Cones.value) || 0;
+                    
+                      Cones.value = String(currentValue + 1);
+                      };
+
+                    function PlusCube() {
+                      const currentValue = Number(Cubes.value) || 0;
+                    
+                      Cubes.value = String(currentValue + 1);
+                      };
+                    
+                    </script>
+                    <br>
+                    <br>
+                    ______________________________________________
+                    <br>                    
+                <label>Cones scored Middle</label><br>
+                <button type="button" name="MinusConesM">-</button>
+                <input type="text" value="0" Name="ConesM" >
+                <button type="button" name="PlusConesM">+</button>
+                <br>
+                <label>Cubes scored Middle</label><br>
+                <button type="button" name="MinusCubesM">-</button>
+                <input type="text" value="0" Name="CubesM" >
+                <button type="button" name="PlusCubesM">+</button>
+
+                <script>
+                    const MinusConesM = document.getElementsByName('MinusConesM')[0];
+                    const PlusConesM = document.getElementsByName('PlusConesM')[0];
+                    const ConesM = document.getElementsByName('ConesM')[0];
+
+                    const MinusCubesM = document.getElementsByName('MinusCubesM')[0];
+                    const PlusCubesM = document.getElementsByName('PlusCubesM')[0];
+                    const CubesM = document.getElementsByName('CubesM')[0];
+                    
+                    MinusConesM.addEventListener('click', MinusConeM);
+                    PlusConesM.addEventListener('click', PlusConeM);
+
+                    MinusCubesM.addEventListener('click', MinusCubeM);
+                    PlusCubesM.addEventListener('click', PlusCubeM);
+                    
+                    function MinusConeM() {
+                      const currentValue = Number(ConesM.value) || 0;
+                      if (currentValue < 1) {
+                      ConesM.value = 0
+                      }  else {
+                      ConesM.value = String(currentValue - 1);
+                      }
+                    };
+
+                    function MinusCubeM() {
+                      const currentValue = Number(CubesM.value) || 0;
+                      if (currentValue < 1) {
+                      CubesM.value = 0
+                      }  else {
+                      CubesM.value = String(currentValue - 1);
+                      }
+                    };
+                    
+                    function PlusConeM() {
+                      const currentValue = Number(ConesM.value) || 0;
+                    
+                      ConesM.value = String(currentValue + 1);
+                      };
+
+                    function PlusCubeM() {
+                      const currentValue = Number(CubesM.value) || 0;
+                    
+                      CubesM.value = String(currentValue + 1);
+                      };
+                    
+                    </script>
+                    <br>
+                    <br>
+                    ______________________________________________
+                    <label>Cones scored Top</label><br>
+                <button type="button" name="MinusConesT">-</button>
+                <input type="text" value="0" Name="ConesT" >
+                <button type="button" name="PlusConesT">+</button>
+                <br>
+                <label>Cubes scored Top</label><br>
+                <button type="button" name="MinusCubesT">-</button>
+                <input type="text" value="0" Name="CubesT" >
+                <button type="button" name="PlusCubesT">+</button>
+
+                <script>
+                    const MinusConesT = document.getElementsByName('MinusConesT')[0];
+                    const PlusConesT = document.getElementsByName('PlusConesT')[0];
+                    const ConesT = document.getElementsByName('ConesT')[0];
+
+                    const MinusCubesT = document.getElementsByName('MinusCubesT')[0];
+                    const PlusCubesT = document.getElementsByName('PlusCubesT')[0];
+                    const CubesT = document.getElementsByName('CubesT')[0];
+                    
+                    MinusConesT.addEventListener('click', MinusConeT);
+                    PlusConesT.addEventListener('click', PlusConeT);
+
+                    MinusCubesT.addEventListener('click', MinusCubeT);
+                    PlusCubesT.addEventListener('click', PlusCubeT);
+                    
+                    function MinusConeT() {
+                      const currentValue = Number(ConesT.value) || 0;
+                      if (currentValue < 1) {
+                      ConesT.value = 0
+                      }  else {
+                      ConesT.value = String(currentValue - 1);
+                      }
+                    };
+
+                    function MinusCubeT() {
+                      const currentValue = Number(CubesT.value) || 0;
+                      if (currentValue < 1) {
+                      CubesT.value = 0
+                      }  else {
+                      CubesT.value = String(currentValue - 1);
+                      }
+                    };
+                    
+                    function PlusConeT() {
+                      const currentValue = Number(ConesT.value) || 0;
+                    
+                      ConesT.value = String(currentValue + 1);
+                      };
+
+                    function PlusCubeT() {
+                      const currentValue = Number(CubesT.value) || 0;
+                    
+                      CubesT.value = String(currentValue + 1);
+                      };
+                    
+                    </script>
+                    <br>
+                <br>
+                <!--
+                </fieldset>
+                <fieldset>
+                -->
+                <h2>Endgame</h2>
+                Endgame Charge Station:<br>
+                <select name="telechrg" id="telechrg" required>
+                    <option></option>
+                    <option name="tpark">Parked</option>
+                    <option name="Tdocked,unengaged">Docked, Not Engaged</option>
+                    <option name="Tdocked,engaged">Docked, Engaged</option>
+                    <option name="Tnone">None of the Above</option>
+                </select>
+                <br>
+                <input type="hidden" name="Alliance" value="%%ALLIANCE%%">
+                <input type="hidden" name="Match" value="%%MATCH%%">
+                <input type="hidden" name="Team" value="%%TEAM%%">
+                <input type="hidden" name="MatchTeam" value="%%MATCHTEAM%%">
+                <br>
+                <br>
+                <input type="submit" class="submitbutton" style="font-size:50px;">
+                <!--
+            </fieldset>
+          -->
+        </form>  
+    </body>
+</html>

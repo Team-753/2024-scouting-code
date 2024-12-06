@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Choose Match</title>
+        <meta charset="UTF-8">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
+        <link rel="stylesheet" href="static/scout1.css">
+        <link rel="icon" type="image/x-icon" href="static/scoutIcon.png">
+    </head>
+    <body>
+        <a href="/">Return to scouting home</a>
+        <form action="/humanScout" method="post">
+            <select name="alliance" id="alliance">
+                <option value="blue 1">Blue 1</option>
+                <option value="blue 2">Blue 2</option>
+                <option value="blue 3">Blue 3</option>
+                <option value="red 1">Red 1</option>
+                <option value="red 2">Red 2</option>
+                <option value="red 3">Red 3</option>
+            </select><br>
+            <!--<input type="search" name="teamNo" id="teamNo" list="teams" required>-->
+            <select id="teamNo" name="teamNo" required>
+                <!--<option value="{{ red1 }}"></option>
+                <option value="{{ red2 }}"></option>
+                <option value="{{ red3 }}"></option>
+                <option value="{{ blue1 }}"></option>
+                <option value="{{ blue2 }}"></option>
+                <option value="{{ blue3 }}"></option>-->
+                <option value=""></option>
+                <option value="753">753</option>
+                <option value="957">957</option>
+                <option value="997">997</option>
+                <option value="1425">1425</option>
+                <option value="1540">1540</option>
+                <option value="2374">2374</option>
+                <option value="2471">2471</option>
+                <option value="2521">2521</option>
+                <option value="2550">2550</option>
+                <option value="2635">2635</option>
+                <option value="2733">2733</option>
+                <option value="2811">2811</option>
+                <option value="2898">2898</option>
+                <option value="2990">2990</option>
+                <option value="3024">3024</option>
+                <option value="3636">3636</option>
+                <option value="3673">3673</option>
+                <option value="4043">4043</option>
+                <option value="4060">4060</option>
+                <option value="4127">4127</option>
+                <option value="4488">4488</option>
+                <option value="4662">4662</option>
+                <option value="4692">4692</option>
+                <option value="5295">5295</option>
+                <option value="5970">5970</option>
+                <option value="5975">5975</option>
+                <option value="6343">6343</option>
+                <option value="6443">6443</option>
+                <option value="6465">6465</option>
+                <option value="6696">6696</option>
+                <option value="6845">6845</option>
+                <option value="7034">7034</option>
+                <option value="9430">9430</option>
+                <option value="9567">9567</option>
+                <option value="9600">9600</option>
+                <option value="9680">9680</option>
+            </select>
+            <label for="teamNo">Team Number</label><br>
+            <button id="minusMatch" type="button">-</button>
+            <input type="text" name="matchNo" id="matchNo" list="matches" required>
+            <button id="plusMatch" type="button">+</button>
+            <label for="matchNo">Match Number</label><br>
+            <script>
+                const minusMatch = document.getElementById("minusMatch")
+                const matchNo = document.getElementById("matchNo")
+                const plusMatch = document.getElementById("plusMatch")
+                minusMatch.addEventListener("click", minusMatch1)
+                plusMatch.addEventListener("click", plusMatch1)
+                function minusMatch1(){
+                    const currentValue = Number(matchNo.value) || 0
+                    if(currentValue < 1){
+                        matchNo.value = 0
+                    } else {
+                        matchNo.value = String(currentValue - 1)
+                    }
+                }
+                function plusMatch1(){
+                    const currentValue = Number(matchNo.value) || 0
+                    matchNo.value = String(currentValue + 1)
+                }
+            </script>
+            <input type="submit">
+        </form>
+        <br> <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+       
+    </body>
+</html>

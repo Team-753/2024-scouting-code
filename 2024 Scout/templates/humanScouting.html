@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Human Scouting Interface</title>
+        <meta charset="UTF-8">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
+        <link rel="stylesheet" href="static/scout1.css">
+        <link rel="icon" type="image/x-icon" href="static/scoutIcon.png">
+    </head>
+    <body>
+        <h1>Human Scouting</h1>
+        <form method="post" action="/postH">
+            <input id="team" name="team" hidden type="number" value="{{ team }}">
+            <input id="match" name="match" hidden type="number" value="{{ match }}">
+            <input id="alliance" name="alliance" hidden type="text" value="{{ alliance }}">
+            <input id="matchteam" name="matchteam" hidden type="number" value=" {{ match }}">
+            <h3>Human scouting for {{ monitorTeam }}</h3>
+            <script>
+                var allianceVal = document.getElementById("alliance").value
+                if(allianceVal === "blue"){
+                    document.body.style.backgroundImage = "linear-gradient(to top left, rgb(59, 12, 230), rgb(40, 214, 230))"
+                } else if(allianceVal === "red"){
+                    document.body.style.backgroundImage = "linear-gradient(to top left, rgb(255, 0, 0), rgb(197, 92, 92))"
+                }
+            </script>
+            <fieldset>
+                <h3>Amplification</h3>
+                <input type="checkbox" name="coop" id="coop" value="Coopertition" class="largecheckbox">
+                <label for="coop">Did they attempt Coopertition?</label><br>
+                <button id="minusAmpTimes" type="button">-</button>
+                <input id="ampTimes" name="ampTimes" type="text" value="0" class="numbers">
+                <button id="plusAmpTimes" type="button">+</button>
+                <script>
+                    const minusAmpTimes = document.getElementById("minusAmpTimes")
+                    const ampTimes = document.getElementById("ampTimes")
+                    const plusAmpTimes = document.getElementById("plusAmpTimes")
+                    minusAmpTimes.addEventListener("click", minusAmpTimes1)
+                    plusAmpTimes.addEventListener("click", plusAmpTimes1)
+                    function minusAmpTimes1(){
+                        const currentValue = Number(ampTimes.value) || 0
+                        if(currentValue < 1){
+                            ampTimes.value = 0
+                        } else {
+                            ampTimes.value = String(currentValue - 1)
+                        }
+                    }
+                    function plusAmpTimes1(){
+                        const currentValue = Number(ampTimes.value) || 0
+                        ampTimes.value = String(currentValue + 1)
+                    }
+                </script>
+                <label for="ampTimes">How many times did they amplify?</label>
+            </fieldset>
+            <fieldset>
+                <h3>High Note 1</h3>
+                <input id="notThrown1" name="ring1" type="radio" class="largecheckbox" value="Not Thrown">
+                <label for="notThrown1">Not Thrown</label><br>
+                <input id="thrown1" name="ring1" type="radio" required class="largecheckbox" value="Thrown">
+                <label for="thrown1">Thrown</label>
+                <div id="thrownDetail1" class="detail"></div>
+                <input hidden name="thro1" id="thro1No" value="False">
+            </fieldset>
+            <fieldset>
+                <h3>High Note 2</h3>
+                <input id="notThrown2" name="ring2" type="radio" class="largecheckbox" value="Not Thrown">
+                <label for="notThrown2">Not Thrown</label><br>
+                <input id="thrown2" name="ring2" type="radio" required class="largecheckbox" value="Thrown">
+                <label for="thrown2">Thrown</label>
+                <div id="thrownDetail2" class="detail"></div>
+                <input hidden name="thro2" id="thro2No" value="False">
+            </fieldset>
+            <fieldset>
+                <h3>High Note 3</h3>
+                <input id="notThrown3" name="ring3" type="radio" class="largecheckbox" value="Not Thrown">
+                <label for="notThrown3">Not Thrown</label><br>
+                <input id="thrown3" name="ring3" type="radio" required class="largecheckbox" value="Thrown">
+                <label for="thrown3">Thrown</label>
+                <div id="thrownDetail3" class="detail"></div>
+                <input hidden name="thro3" id="thro3No" value="False">
+            </fieldset>
+            <fieldset>
+                <input type="text" id="notes" name="notes">
+                <label for="notes">Notes</label>
+            </fieldset>
+            <input type="submit">
+        </form>
+    </body>
+    <script>
+        t1 = false
+        t2 = false
+        t3 = false
+        function thrown1(){
+            if(t1 !== true){
+                var throws1 = document.getElementById("thrownDetail1")
+                var missed1 = document.createElement("input")
+                missed1.id = "miss1";
+                missed1.type = "radio"
+                missed1.name = "thro1";
+                missed1.className = "largecheckbox"
+                missed1.value = "Missed"
+                missed1.required = true
+                document.getElementById("thro1No").name = "None"
+                throws1.appendChild(missed1)
+                var missV1 = document.createElement("label")
+                missV1.htmlFor = "miss1";
+                missV1.innerHTML = "Missed"
+                missV1.id = "missl1";
+                throws1.appendChild(missV1)
+                var br11 = document.createElement("br")
+                br11.id="11"
+                throws1.appendChild(br11)
+                var micNoS1 = document.createElement("input")
+                micNoS1.id = "micNS1";
+                micNoS1.type = "radio"
+                micNoS1.name = "thro1";
+                micNoS1.value = "Mic No Spotlit"
+                micNoS1.className = "largecheckbox"
+                throws1.appendChild(micNoS1)
+                var micNV1 = document.createElement("label")
+                micNV1.htmlFor = "micNS1";
+                micNV1.innerHTML = "Microphone (NO Spotlight)"
+                micNV1.id = "micNSl1";
+                throws1.appendChild(micNV1)
+                var br12 = document.createElement("br")
+                br12.id="12"
+                throws1.appendChild(br12)
+                var micS1 = document.createElement("input")
+                micS1.id = "mS1";
+                micS1.type = "radio"
+                micS1.name = "thro1";
+                micS1.className = "largecheckbox"
+                micS1.value = "Mic Spotlit"
+                throws1.appendChild(micS1)
+                var micSV1 = document.createElement("label")
+                micSV1.htmlFor = "mS1";
+                micSV1.innerHTML = "Microphone (Spotlight)"
+                micSV1.id = "mSl1";
+                throws1.appendChild(micSV1)
+            }
+        }
+        function thrown2(){
+            if(t2 !== true){
+                var throws2 = document.getElementById("thrownDetail2")
+                var missed2 = document.createElement("input")
+                missed2.id = "miss2";
+                missed2.type = "radio"
+                missed2.name = "thro2";
+                missed2.required = true
+                missed2.value = "Missed"
+                missed2.className = "largecheckbox"
+                document.getElementById("thro2No").name = "None"
+                throws2.appendChild(missed2)
+                var missV2 = document.createElement("label")
+                missV2.htmlFor = "miss2";
+                missV2.innerHTML = "Missed"
+                missV2.id = "missl2";
+                throws2.appendChild(missV2)
+                var br21 = document.createElement("br")
+                br21.id="21"
+                throws2.appendChild(br21)
+                var micNoS2 = document.createElement("input")
+                micNoS2.id = "micNS2";
+                micNoS2.type = "radio"
+                micNoS2.name = "thro2";
+                micNoS2.value = "Mic No Spotlit"
+                micNoS2.className = "largecheckbox"
+                throws2.appendChild(micNoS2)
+                var micNV2 = document.createElement("label")
+                micNV2.htmlFor = "micNS2";
+                micNV2.innerHTML = "Microphone (NO Spotlight)"
+                micNV2.id = "micNSl2";
+                throws2.appendChild(micNV2)
+                var br22 = document.createElement("br")
+                br22.id="22"
+                throws2.appendChild(br22)
+                var micS2 = document.createElement("input")
+                micS2.id = "mS2";
+                micS2.type = "radio"
+                micS2.name = "thro2";
+                micS2.className = "largecheckbox"
+                micS2.value = "Mic Spotlit"
+                throws2.appendChild(micS2)
+                var micSV2 = document.createElement("label")
+                micSV2.htmlFor = "mS2";
+                micSV2.innerHTML = "Microphone (Spotlight)"
+                micSV2.id = "mSl2";
+                throws2.appendChild(micSV2)
+            }
+        }
+        function thrown3(){
+            if(t3 !== true){
+                var throws3 = document.getElementById("thrownDetail3")
+                var missed3 = document.createElement("input")
+                missed3.id = "miss3";
+                missed3.type = "radio"
+                missed3.name = "thro3";
+                missed3.required = true
+                missed3.value = "Missed"
+                missed3.className = "largecheckbox"
+                document.getElementById("thro3No").name = "None"
+                throws3.appendChild(missed3)
+                var missV3 = document.createElement("label")
+                missV3.htmlFor = "miss3";
+                missV3.innerHTML = "Missed"
+                missV3.id = "missl3";
+                throws3.appendChild(missV3)
+                var br31 = document.createElement("br")
+                br31.id="31"
+                throws3.appendChild(br31)
+                var micNoS3 = document.createElement("input")
+                micNoS3.id = "micNS3";
+                micNoS3.type = "radio"
+                micNoS3.name = "thro3";
+                micNoS3.value = "Mic No Spotlit"
+                micNoS3.className = "largecheckbox"
+                throws3.appendChild(micNoS3)
+                var micNV3 = document.createElement("label")
+                micNV3.htmlFor = "micNS3";
+                micNV3.innerHTML = "Microphone (NO Spotlight)"
+                micNV3.id = "micNSl3";
+                throws3.appendChild(micNV3)
+                var br32 = document.createElement("br")
+                br32.id="32"
+                throws3.appendChild(br32)
+                var micS3 = document.createElement("input")
+                micS3.id = "mS3";
+                micS3.type = "radio"
+                micS3.name = "thro3";
+                micS3.className = "largecheckbox"
+                micS3.value = "Mic Spotlit"
+                throws3.appendChild(micS3)
+                var micSV3 = document.createElement("label")
+                micSV3.htmlFor = "mS3";
+                micSV3.innerHTML = "Microphone (Spotlight)"
+                micSV3.id = "mSl3";
+                throws3.appendChild(micSV3)
+            }
+        }        
+        function notThrown(a){
+            if(document.getElementById("miss"+a) !== null){
+                var m = document.getElementById("miss"+a)
+                var m1 = document.getElementById("missl"+a)
+                var n = document.getElementById("micNS"+a)
+                var n1 = document.getElementById("micNSl"+a)
+                var s = document.getElementById("mS"+a)
+                var s1 = document.getElementById("mSl"+a)
+                var b1 = document.getElementById(a+"1")
+                var b2 = document.getElementById(a+"2")
+                document.getElementById("thro"+a+"No").name = "thro"+a
+                m.remove()
+                m1.remove()
+                n.remove()
+                n1.remove()
+                s.remove()
+                s1.remove()
+                b1.remove()
+                b2.remove()
+            }
+        }
+        window.onload = function(){
+            document.getElementById("notThrown1").addEventListener("click", function(){
+                notThrown(1)
+                t1 = false
+            })
+            document.getElementById("thrown1").addEventListener("click", function(){
+                thrown1()
+                t1 = true
+            })
+            document.getElementById("notThrown2").addEventListener("click", function(){
+                notThrown(2)
+                t2 = false
+            })
+            document.getElementById("thrown2").addEventListener("click", function(){
+                thrown2()
+                t2 = true
+            })
+            document.getElementById("notThrown3").addEventListener("click", function(){
+                notThrown(3)
+                t3 = false
+            })
+            document.getElementById("thrown3").addEventListener("click", function(){
+                thrown3()
+                t3 = true
+            })
+        }
+    </script>
+</html>
